@@ -1,0 +1,66 @@
+<html lang='en'>
+
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+    <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <link rel='stylesheet' type='text/css' href='/static/styles/style.css'>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="notepad">
+        <h1>Things To Do</h1></div>
+      <div class="container">
+        <form method='POST' action='/'>
+          <div class="form-wrapper" name="checkListForm">
+            <input type="text" id="thing" type="text" name="content" value="" required>
+            <button type='submit' onClick="return checkempty()" class="button" id="addbttn">Add</button>
+        </form>
+        </div>
+      </div>
+      <section class="todo">
+        <ul class="todo-list" id="todo">
+          <% let i = 0; %>
+          <% let order = 1; %>
+            <% todolist.forEach(function(todolist) { %>
+
+              <%  if (todolist.checked) { %>
+                <li class="item linet">
+                  <% } else { %>
+                    <li class="item" itemorder='<%= order %>' >
+                      <% } %>
+                        <% i += 1; %>
+
+                        <% order += 1; %>
+                       
+                          <form name='delform' class='delform' id='del<%= todolist.id %>' method='POST' action='/<%= todolist.id %>?_method=DELETE'>
+
+                          </form>
+                          <form name='editform' id='editform' method='POST' action='/<%= todolist.id %>?_method=PUT'>
+<div class="editimgbox" id='<%= todolist.id %>a' data="<%= i %>" style="display:list-item;">
+            <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698873-icon-136-document-edit-512.png" class="editimg" alt="edit button image">
+   
+            </div>
+                            <a id='delbttn' onClick='delitem(del<%= todolist.id %>)' class="signc">
+                              <div class="signcc">&times;</div>
+                            </a>
+                            <input id='i<%= todolist.id %>a' name='content' type="text" value="<%= todolist.content %>" disabled>
+
+                          </form>
+
+                    </li>
+                    <% }) %>
+        </ul>
+      </section>
+    </div>
+    <script src="/static/js/script.js"></script>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS thingstodo (
+  id BIGSERIAL PRIMARY KEY,
+  content VARCHAR(1024)
+);
+
