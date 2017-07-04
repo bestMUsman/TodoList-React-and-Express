@@ -17,9 +17,9 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/public/index.html");
-});
+// app.get("/", function(req, res) {
+//   res.sendFile(__dirname + "/public/index.html");
+// });
 
 const todolistRoutes = require("./routes/todolistRoute");
 app.use("/api", todolistRoutes);
