@@ -1,44 +1,52 @@
-const db = require('../db/config');
+const db = require("../db/config");
 
 const Todolist = {};
 
-
 Todolist.findAll = () => {
-    return db.query('SELECT * FROM thingstodo ORDER BY id DESC');
+  return db.query("SELECT * FROM thingstodo ORDER BY id DESC");
+};
+
+Todolist.findById = (id) => {
+  return db.oneOrNone(
+    `
+    SELECT * FROM thingstodo
+    WHERE id = $1`, 
+    [id]
+  );
 };
 
 Todolist.create = todolist => {
-    return db.one(
-        `
+  return db.one(
+    `
         insert into thingstodo 
-        (content, checked)
+        (content)
         values
-        ($1, $2) returning *
+        ($1) returning *
         `,
-        [todolist.content, todolist.checked]
-    );
+    [todolist.content]
+  );
 };
 
 Todolist.update = (todolist, id) => {
-    return db.none(
-        `
+  return db.none(
+    `
         update thingstodo set
-        content = $1,
-        checked = $2
-        where id = $3
+        content = $1
+        where id = $2
+        RETURNING *
         `,
-        [todolist.content, todolist.checked, id]
-    );
+    [todolist.content, id]
+  );
 };
 
 Todolist.destroy = id => {
-    return db.none(
-        `
+  return db.none(
+    `
         delete from thingstodo
         where id = $1
         `,
-        [id]
-    );
+    [id]
+  );
 };
 
 module.exports = Todolist;

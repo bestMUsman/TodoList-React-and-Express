@@ -1,8 +1,10 @@
+const options = {
+  query: (e) => {
+    console.log(e.query);
+  }
+};
 
-
-
-
-const pgp = require('pg-promise')();
+const pgp = require('pg-promise')(options);
 
 let db;
 
