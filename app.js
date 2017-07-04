@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // });
 
 const todolistRoutes = require("./routes/todolistRoute");
-app.use("/api", todolistRoutes);
+app.use("/api/todolist", todolistRoutes);
 
 app.get("/*", function(req, res) {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
