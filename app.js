@@ -10,12 +10,13 @@ app.listen(PORT, function() {
   console.log(`listening on port ${PORT}`);
 });
 
-// app.use('/static', express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, "client/build")));
 app.use(cors());
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "client/build")));
+
+// app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // app.get("/", function(req, res) {
 //   res.sendFile(__dirname + "/public/index.html");
