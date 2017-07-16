@@ -15,7 +15,7 @@ Todo-List made In React and Node.js/Express with CRUD Functionality using RESTFU
  - Item will be added to the list, now you will be able to update or delete the item
  - To update the item from the list Click on the 'Edit' icon
  - Edit the text then press 'Enter' or click on the 'Edit' icon again
- - To 'Delete' a item form the list, just click on the cross icon
+ - To 'Delete' an item form the list, just click on the cross icon
 
 ## How does it work? 
  - When user comes to a website, so React makes a fetch request to the server[node.js/express] 
