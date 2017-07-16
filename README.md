@@ -21,9 +21,9 @@ Todo-List made In React and Node.js/Express with CRUD Functionality using RESTFU
  - When user comes to a website, so React makes a fetch request to the server[node.js/express] 
  - Node.js/Express using the SQL query, which uses the MVC Framework, makes a request to the PostgreSQL Database
  - The Data is returned from the database to the server, which then displays the data in the Json format as API
- - The fetch request, which was made from React, gets this Json data then renders it to the client on the browser side
+ - The fetch request, which was made from React, gets this Json data and then renders it to the client side in the browser
  - Which allows user to read all the data stored in the database
- - For 'Adding', 'Editing/Updating', and 'Deleting' the fetch request is also made, which is as similar as described above but with different Forms and SQL quries
+ - For 'Adding', 'Editing/Updating', and 'Deleting' the fetch request is also made, which is as similar as described above but with different Forms and SQL queries
  - Thus allowing Users to use CRUD[create, read, update, and delete] Functionality
  
 ## What techs are being used? 
