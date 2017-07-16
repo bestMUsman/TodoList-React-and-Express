@@ -29,6 +29,11 @@ app.get("/*", function(req, res) {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
+const http = require("http");
+setInterval(function() {
+  http.get("https://todolistreactexpress.herokuapp.com");
+}, 300000); // every 5 minutes (300000)
+
 app.get("*", function(req, res) {
   res.status(404).send({ message: "Not Found, Sorry :)" });
 });
