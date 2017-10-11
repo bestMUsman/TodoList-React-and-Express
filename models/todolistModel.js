@@ -19,11 +19,11 @@ Todolist.create = todolist => {
   return db.one(
     `
         insert into thingstodo 
-        (content)
+        (content, checked)
         values
-        ($1) returning *
+        ($1, $2) returning *
         `,
-    [todolist.content]
+    [todolist.content, 'false']
   );
 };
 
@@ -31,11 +31,12 @@ Todolist.update = (todolist, id) => {
   return db.none(
     `
         update thingstodo set
-        content = $1
-        where id = $2
+        content = $1,
+        checked = $2
+        where id = $3
         RETURNING *
         `,
-    [todolist.content, id]
+    [todolist.content, todolist.checked, id]
   );
 };
 

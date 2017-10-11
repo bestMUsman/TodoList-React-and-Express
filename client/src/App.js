@@ -14,6 +14,7 @@ class App extends Component {
     this.submitForm = this.submitForm.bind(this);
     this.deleteForm = this.deleteForm.bind(this);
     this.editForm = this.editForm.bind(this);
+    this.editChecked = this.editChecked.bind(this);
   }
 
   componentDidMount() {
@@ -51,6 +52,20 @@ class App extends Component {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         content: e.target.content.value,
+        checked: e.target.checked.value,
+      }),
+    }).then(response => {
+      this.fetchAllData();
+    });
+  }
+
+  editChecked(id, content, checked) {
+    fetch(`/api/todolist/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        content: content,
+        checked: checked,
       }),
     }).then(response => {
       this.fetchAllData();
@@ -58,7 +73,6 @@ class App extends Component {
   }
 
   submitForm(e) {
-    e.preventDefault();
     fetch("/api/todolist", {
       method: "POST",
       headers: {
@@ -82,6 +96,7 @@ class App extends Component {
           fetchData={this.state.fetchData}
           deleteForm={this.deleteForm}
           editForm={this.editForm}
+          editChecked={this.editChecked}
         />
       );
     } else return <p className="loading">Loading....</p>;

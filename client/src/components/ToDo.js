@@ -10,10 +10,21 @@ class ToDo extends Component {
     };
     this.renderEditForm = this.renderEditForm.bind(this);
     this.handleToDoChange = this.handleToDoChange.bind(this);
+    this.handleCheckedSubmit = this.handleCheckedSubmit.bind(this);
   }
 
   handleToDoChange(e) {
     this.setState({ newToDoValue: e.target.value });
+  }
+
+  handleCheckedSubmit() {
+    let checked;
+    if (this.props.todoData.checked) {
+      checked = false;
+    } else {
+      checked = true;
+    }
+    this.props.editChecked(this.props.todoData.id, this.props.todoData.content, checked);
   }
 
   renderEditForm() {
@@ -25,7 +36,6 @@ class ToDo extends Component {
             e.preventDefault();
             this.props.editForm(e, this.props.todoData.id);
             this.setState({ isBeingEdited: false });
-            // this.nameInput.focus();
           }}
         >
           <li className="item">
@@ -47,8 +57,13 @@ class ToDo extends Component {
               value={this.state.newToDoValue}
               onChange={this.handleToDoChange}
               name="content"
-              className="editInputBox"
+              className="content"
               autoFocus
+            />
+            <input
+              type="hidden"
+              value={this.props.todoData.checked}
+              name="checked"
             />
           </li>
         </form>
@@ -58,7 +73,7 @@ class ToDo extends Component {
 
   renderToDo() {
     return (
-      <li className="item">
+      <li className={"item " + (this.props.todoData.checked ? "checked" : "")}>
         <div
           className="editimgbox"
           onClick={() => {
@@ -76,19 +91,14 @@ class ToDo extends Component {
           onClick={() => this.props.deleteForm(this.props.todoData.id)}
         >
           <div className="signcc">&times;</div>
-        </span>{" "}
-        {this.props.todoData.content}
+        </span>
+        <div
+          className="content" 
+          onClick={this.handleCheckedSubmit}
+        >
+          {this.props.todoData.content}
+        </div>
       </li>
-      // <div className="tweed">
-      //   {this.props.todoData.content}
-      //   <button onClick={() => this.props.deleteForm(this.props.todoData.id)} >Delete</button>
-      //   <button
-      //     onClick={() => {
-      //       this.setState({ isBeingEdited: true })
-      //     }}>
-      //     Edit
-      //   </button>
-      // </div>
     );
   }
 

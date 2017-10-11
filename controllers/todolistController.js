@@ -19,12 +19,12 @@ controller.show = (req, res) => {
   Todolist.findById(req.params.id)
     .then(todolist => {
       res.json({
-        message: 'ok',
+        message: "ok",
         data: { todolist },
       });
     })
     .catch(err => {
-      res.status(400).json({message: '400', err});
+      res.status(400).json({ message: "400", err });
     });
 };
 
@@ -45,6 +45,7 @@ controller.update = (req, res) => {
   Todolist.update(
     {
       content: req.body.content,
+      checked: req.body.checked,
     },
     req.params.id
   )

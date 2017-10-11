@@ -13,6 +13,7 @@ class ToDoList extends Component {
                 key={todo.id}
                 deleteForm={this.props.deleteForm}
                 editForm={this.props.editForm}
+                editChecked={this.props.editChecked}
               />
             );
           })}
