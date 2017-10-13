@@ -19,7 +19,7 @@ Todo-List made In React and Node.js/Express with CRUD Functionality using RESTFU
 
 ## Features connected with Database
  - Add items
- - Update Items
+ - Edit Items
  - Delete items
  - Cross Out Items
  - Re-Order the position of Items using Drag and Drop
