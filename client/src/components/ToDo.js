@@ -24,7 +24,11 @@ class ToDo extends Component {
     } else {
       checked = true;
     }
-    this.props.editChecked(this.props.todoData.id, this.props.todoData.content, checked);
+    this.props.editChecked(
+      this.props.todoData.id,
+      this.props.todoData.content,
+      checked
+    );
   }
 
   renderEditForm() {
@@ -73,7 +77,10 @@ class ToDo extends Component {
 
   renderToDo() {
     return (
-      <li className={"item " + (this.props.todoData.checked ? "checked" : "")}>
+      <li
+        className={"item " + (this.props.todoData.checked ? "checked" : "")}
+        id={this.props.todoData.id}
+      >
         <div
           className="editimgbox"
           onClick={() => {
@@ -92,10 +99,7 @@ class ToDo extends Component {
         >
           <div className="signcc">&times;</div>
         </span>
-        <div
-          className="content" 
-          onClick={this.handleCheckedSubmit}
-        >
+        <div className="content" onClick={this.handleCheckedSubmit}>
           {this.props.todoData.content}
         </div>
       </li>

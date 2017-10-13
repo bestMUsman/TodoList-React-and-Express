@@ -1,9 +1,9 @@
 \c todolist_development
 
-INSERT INTO thingstodo (content, checked) VALUES
-  ('Be A Kind Person', FALSE),
-  ('Learn Programming!', FALSE),
-  ('Improve Yourself', FALSE),
-  ('Finish the Homework', TRUE),
-  ('Pure Your Thoughts', FALSE),
-  ('Clean Your Heart!', FALSE);
+INSERT INTO thingstodo (content, checked, position) VALUES
+  ('Be A Kind Person', FALSE, 5),
+  ('Learn Programming!', FALSE, 1),
+  ('Improve Yourself', FALSE, 2),
+  ('Finish the Homework', TRUE, 3),
+  ('Pure Your Thoughts', FALSE, 4),
+  ('Clean Your Heart!', FALSE, 0);

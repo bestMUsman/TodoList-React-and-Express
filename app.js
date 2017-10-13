@@ -28,7 +28,3 @@ app.use("/api/todolist", todolistRoutes);
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
-
-app.get("*", function(req, res) {
-  res.status(404).send({ message: "Not Found, Sorry :)" });
-});

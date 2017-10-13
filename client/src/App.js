@@ -15,6 +15,7 @@ class App extends Component {
     this.deleteForm = this.deleteForm.bind(this);
     this.editForm = this.editForm.bind(this);
     this.editChecked = this.editChecked.bind(this);
+    this.reOrderList = this.reOrderList.bind(this);
   }
 
   componentDidMount() {
@@ -72,6 +73,16 @@ class App extends Component {
     });
   }
 
+  reOrderList(itemsId) {
+    fetch(`/api/todolist/reorderlist`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        itemsId: itemsId,
+      }),
+    });
+  }
+
   submitForm(e) {
     fetch("/api/todolist", {
       method: "POST",
@@ -97,6 +108,7 @@ class App extends Component {
           deleteForm={this.deleteForm}
           editForm={this.editForm}
           editChecked={this.editChecked}
+          reOrderList={this.reOrderList}
         />
       );
     } else return <p className="loading">Loading....</p>;

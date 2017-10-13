@@ -29,16 +29,19 @@ controller.show = (req, res) => {
 };
 
 controller.create = (req, res) => {
-  Todolist.create({
-    content: req.body.content,
-  })
-    .then(todolist => {
-      res.json({ message: "ok", data: { todolist } });
+  Todolist.findLength().then(len => {
+    Todolist.create({
+      content: req.body.content,
+      position: Number(len[0].count) + 1,
     })
-    .catch(err => {
-      console.log(err);
-      res.status(400).json({ message: "400", err });
-    });
+      .then(todolist => {
+        res.json({ message: "ok", data: { todolist } });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(400).json({ message: "400", err });
+      });
+  });
 };
 
 controller.update = (req, res) => {
@@ -59,6 +62,16 @@ controller.update = (req, res) => {
       console.log(err);
       res.status(400).json(err);
     });
+};
+
+controller.updateOrder = (req, res) => {
+  let itemsId = req.body.itemsId;
+  for (let i = 0; i < itemsId.length; i++) {
+    Todolist.updateOrder({
+      index: i,
+      id: itemsId[i],
+    });
+  }
 };
 
 controller.destroy = (req, res) => {
