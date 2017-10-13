@@ -17,6 +17,13 @@ Todo-List made In React and Node.js/Express with CRUD Functionality using RESTFU
  - Edit the text then press 'Enter' or click on the 'Edit' icon again
  - To 'Delete' an item form the list, just click on the cross icon
 
+## Features connected with Database
+ - Add items
+ - Update Items
+ - Delete items
+ - Cross Out Items
+ - Re-Order the position of Items using Drag and Drop
+
 ## How does it work? 
  - When user comes to a website, so React makes a fetch request to the server[node.js/express] 
  - Node.js/Express using the SQL query, which uses the MVC Framework, makes a request to the PostgreSQL Database
@@ -31,5 +38,6 @@ Todo-List made In React and Node.js/Express with CRUD Functionality using RESTFU
  - Node.js/Express
  - PostgreSQL
  - Javascript
+ - jQuery
  - RESTFUL API
  - CSS 
