@@ -9,6 +9,9 @@
     "start": "nodemon --inspect app.js",
     "debugger": "DEBUG=*:* npm run dev"
   },
+  "optionalDependencies": {
+    "fsevents": "*"
+ },
   "author": "Muhammad Usman",
   "license": "ISC",
   "dependencies": {
