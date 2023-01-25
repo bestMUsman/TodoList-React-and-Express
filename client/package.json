@@ -11,6 +11,9 @@
   "devDependencies": {
     "react-scripts": "1.0.3"
   },
+  "optionalDependencies": {
+    "fsevents": "*"
+ },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
