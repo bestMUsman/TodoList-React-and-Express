@@ -10,14 +10,15 @@
     "react-dom": "^15.5.4"
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "react-scripts": "1.0.3"
   },
   "optionalDependencies": {
     "fsevents": "*"
- },
+  },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "master -d build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
