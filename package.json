@@ -2,8 +2,11 @@
   "name": "todolistapp",
   "version": "1.1.1",
   "description": "To Do List App with React + Database",
+  "homepage": "https://musmanrao1994.github.io/TodoList-React-and-Express",
   "main": "app.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "master -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --inspect app.js",
     "start": "nodemon --inspect app.js",

@@ -35,7 +35,7 @@ class ToDoList extends Component {
     return (
       <section className="todo">
         <ul className="todo-list" id="todo" ref="sortable">
-          {this.props.fetchData.map(todo => {
+          {this.props.fetchDataLoaded ? (this.props.fetchData.map(todo => {
             return (
               <ToDo
                 todoData={todo}
@@ -45,7 +45,7 @@ class ToDoList extends Component {
                 editChecked={this.props.editChecked}
               />
             );
-          })}
+          })): <p className="loading">Loading....</p>}
         </ul>
       </section>
     );

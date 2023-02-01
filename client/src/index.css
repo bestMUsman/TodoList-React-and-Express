@@ -358,6 +358,7 @@ input {
 .loading {
   text-align: center;
   margin-top: 25vh;
+  font-size: 51px;
 }
 
 .checked {
