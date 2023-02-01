@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://musmanrao1994.github.io/TodoList-React-and-Express",
   "dependencies": {
     "jquery": "^3.2.1",
     "jquery-ui": "^1.12.1",
@@ -15,6 +16,8 @@
     "fsevents": "*"
  },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
