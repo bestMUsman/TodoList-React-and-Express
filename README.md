@@ -3,7 +3,7 @@
 
 Welcome to TodoList-React-and-Express!
 =====================
-![alt text](https://github.com/musmanraoDev/TodoList-React-and-Express/blob/master/TodoList-React-and-Express.png?raw=true)
+![alt text](https://github.com/musmanraodev/TodoList-React-and-Express/blob/master/TodoList-React-and-Express.png?raw=true)
 
 
 ## What does it do?  
